@@ -1,29 +1,48 @@
-//query SSelectors
-// console.log(document.querySelector('#task-title'));
-// console.log(document.querySelector('.card-title'));
-// console.log(document.querySelector('h5'));
-// document.querySelector('li').style.color='red';
-// document.querySelector('li:last-child').style.color='red';
+let val;
+const list = document.querySelector('ul.collection');
+const listItem = document.querySelector('li.collection-item:first-child');
 
-//document.getElementsByClassName
-// const items = document.getElementsByClassName('collection-item');
-// console.log(items);
-// console.log(items[0]);
-// items[0].style.color = 'red';
-// items[4].style.color = 'red';
+val = listItem;
+val = list;
+
+// get child node
+
+val = list.childNodes;
+val = list.childNodes[0];
+val = list.children;
+val = list.childNodes[0].nodeName;
+val = list.childNodes[1].nodeType;
 
 
-// const listItems = document.querySelector('ul').getElementsByClassName('collection-item');
-// console.log(listItems);
+// get children element Node
+val = list.children;
+val  = list.children[1];
+val  = list.children[1].textContent = "hi";
 
-//query SSelectorsAll
+// Children of children
+list.children[3].children[0].id = 'test-link';
+val = list.children[3].children[0];
 
-const items = document.querySelectorAll('ul.collection li.collection-item');
+// first child 
+val = list.firstChild;
+val  = list.firstElementChild;
 
-items.forEach(function(item,index){
-    //console.log(item.className);
-    item.textContent = `${index}: Hello`;
-});
+// lst child
 
-console.log(items);
+val = list.lastChild;
+val = list.lastElementChild;
 
+// count child element
+val = list.childElementCount;
+
+// get parent Node
+val = listItem.parentElement;
+
+val = listItem.parentNode;
+
+val = listItem.parentElement.parentElement;
+
+// get next sibling
+val = listItem.nextSibling;
+
+console.log(val);
