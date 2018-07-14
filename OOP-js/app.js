@@ -1,58 +1,47 @@
-//Bultin counstrunctors
-// strings
-
-const name1 = "jeff";
-const name2 = new String("jeff");
-console.log(name1);
-//name2.foo = alert("hi");
-
-console.log(typeof name2);
-
-if (name2 == "jeff") {
-  console.log("yes");
-} else {
-  console.log("no");
+// Object.Proto Type
+//Person.prototype
+// Person constructor
+function Person(firstname, lastname, dob) {
+  this.firstname = firstname;
+  this.lastname = lastname;
+  // this.age = age;
+  this.birthday = new Date(dob);
+  // this.calculateAge = function() {
+  //   const diff = Date.now() - this.birthday.getTime();
+  //   const ageDate = new Date(diff);
+  //   return Math.abs(ageDate.getUTCFullYear() - 1970);
+  // };
 }
 
-// number
-const num1 = 5;
-const num2 = new Number(5);
+const saurav = new Person("saurav", "pal", "01-05-1996");
+const gaurav = new Person("gaurav", "pal", "july 1 1994");
 
-console.log(num1);
-console.log(num2);
+console.log(gaurav);
 
-// boolen
-const bool1 = true;
-const bool2 = new Boolean(true);
-
-console.log(bool1);
-console.log(bool2);
-
-// functions
-
-const getSum1 = function(x, y) {
-  return x + y;
+// calculateAge
+Person.prototype.calculateAge = function() {
+  const diff = Date.now() - this.birthday.getTime();
+  const ageDate = new Date(diff);
+  return Math.abs(ageDate.getUTCFullYear() - 1970);
+};
+//full name
+Person.prototype.getFullname = function() {
+  return this.firstname + " " + this.lastname;
 };
 
-const getSum2 = new Function("x", "y", "return x + y");
-
-//console.log(getSum2(12, 43));
-
-//Objects
-
-const john = {
-  name: "john"
+//Gets JobTitle
+Person.prototype.getJobTitle = function(jobTitle) {
+  this.lastname = jobTitle;
 };
-const john2 = new Object({ name: "John" });
-//console.log(john2);
-// array
 
-const arr1 = [1, 2, 3, 4];
-const arr2 = new Array(1, 2, 3, 4);
-//
-// regular expression
+console.log(saurav.getFullname());
+console.log(saurav.calculateAge());
 
-const rel = /\w+/;
-const re2 = new RegExp("\\w+");
+console.log(gaurav.getFullname());
+console.log(gaurav.calculateAge());
 
-console.log(re2);
+gaurav.getJobTitle("Programmer");
+console.log(gaurav.getFullname());
+// check __proto__
+console.log(gaurav.hasOwnProperty("firstname"));
+console.log(gaurav.hasOwnProperty("getJobTitle"));
