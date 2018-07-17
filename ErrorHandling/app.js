@@ -35,7 +35,25 @@ re = /Hel{2,}o/i; // must occur atlist m amount of Times
 //sytring to match
 re = /([0-9]x){3}/;
 
-const str = "3x3x3x";
+//Shorthand Cheratecr Classes
+
+re = /\w/; // Word Charecter  - alphanumeric or _
+
+re = /\w+/; // +  = one or more
+re = /\w/; // Word Charecter  - alphanumeric or _
+re = /\W/; // Non Word Charecter  (upper case W)
+re = /\d/; // Match Any Digit
+re = /\d+/; // Match Any Digit 0 to more times
+re = /\D/; // Match any Non digit
+re = /\s/; // Match white space charecters
+re = /\S/; // Match NON white space charecters
+re = /Hell\b/i; // word boundry
+
+//Assertions
+re = /x(?=y)/; // Match x only if Followed by y
+re = /x(?!y)/; // Match x only if NOT  Followed by y
+
+const str = "fsdSGsgSyxy";
 const result = re.exec(str);
 console.log(result);
 
