@@ -5,9 +5,10 @@ function easyHTTP() {
 // Make an HTTP GET Request
 easyHTTP.prototype.get = function(url) {
   this.http.open("GET", url, true);
-  this.http.onload = () => {
-    if (this.http.status === 200) {
-      console.log(this.http.responseText);
+  let self = this;
+  this.http.onload = function() {
+    if (self.http.status === 200) {
+      console.log(self.http.responseText);
     }
   };
   this.http.send();
