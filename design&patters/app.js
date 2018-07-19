@@ -1,1 +1,1 @@
-// singelton Pattern
+// Factory Pattern
